@@ -20,7 +20,7 @@ func main() {
 	if mode == "run" {
 		log.Println("Simulating work")
 	} else if mode == "update" {
-		// Using exec.Command + Run instead of syscall.Exec because syscall.Exec inherits PID and the other does not since it spawns a subprocess.
+		// Using exec.Command + Start instead of syscall.Exec because syscall.Exec inherits PID and the other does not since it spawns a subprocess.
 		execCmd := exec.Command("/Users/rase/dev/auto_updating/auto_update_updater/AutoUpdateUpdater", strconv.Itoa(selfPid), binary)
 		if err := execCmd.Start(); err != nil {
 			log.Fatal(err)
